@@ -1,39 +1,133 @@
 <!DOCTYPE html>
-  <head>
+
+<head>
     <title>covid tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+    <style type="text/css">
+    body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: #e3e2b3;
+    }
+    h1 {
+      font-weight: bolder;
+    }
+    .card-text{
+      color: black;
+    }
+   img{
+    float: right;
+    display: inline-block;
+    padding-right: 40px;
+    padding-bottom: 60px;
+   }
+    </style>
+</head>
 
-  <body>
-<!-- navigation bar -->
-  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Covid-Tracker</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/"> Worldwide <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/india">India </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/help">Help</a>
-      </li>
-      
-    </ul>
-   <ul class="navbar-nav ml-auto">
-   	<li class="nav-item " >
-      	<a class="nav-link" href="/about">About</a>
-      </li>	 
-   </ul>
-
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Covid-Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"> Worldwide <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/india">India </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/help">Help</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
+    <!-- navbar ends -->
+    <img src="https://i.pinimg.com/originals/5e/a6/a8/5ea6a87cbb3c9569af989521f2d6d5d1.png" width="284" height="328">
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    
+    <h1 class="display-4">India Statistics</h1>
+    <p class="lead">Number of Confirmed, Deaths and Recovered info of India.</p>
+    
   </div>
-</nav>
-<br><br>
+</div>
+
+    <div class="row" style="margin-left: 20px;">
+        <div class="col-lg-4 col-md-12">
+            <div class="card bg-warning mb-3" style="max-width: 22rem; height: 15rem;">
+                <div class="card-header"><strong>Total Confirmed count</strong></div>
+                <div class="card-body text-success">
+                    <h1 class="card-text" id="confirmed"></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+           <div class="card bg-danger mb-3" style="max-width: 22rem; height: 15rem;">
+                <div class="card-header"><strong>Total Deaths count</strong></div>
+                <div class="card-body text-success">
+                    <h1 class="card-text" id="deaths"></h1>
+                </div>
+            </div>
+            </div>
+            <div class=" col-lg-4 col-md-12 ">
+                <div class="card bg-success mb-3" style="max-width: 22rem; height: 15rem;">
+                <div class="card-header"><strong>Total recovered count</strong></div>
+                <div class="card-body text-success">
+                    <h1 class="card-text" id="recovered"></h1>
+                </div>
+            </div>
+                </div>
+              </div>  
+
+              <div class="heading" align="center"><br><br>
+                <h3> For State-wise Realtime Information, Click <a href="https://www.mohfw.gov.in/" target="_blank">here</a> </h3>
+                <p>(Link redirects to Governement website)</p><br><br>
+              </div>
+            <script>
+            fetch('https://pomber.github.io/covid19/timeseries.json').then(
+                res => {
+                    res.json().then(
+                        data => {
+
+                            var india = 0; // variable to store india index from the json file
+                            for (let i = 0; i < Object.keys(data).length; i++) {
+                                if (Object.keys(data)[i] == 'India') {
+                                    india = i; // finding india in the json
+                                }
+                            }
+                            var todaysobjectlength = Object.values(data)[india].length - 1; // accessing today's object from india array
+                            var country = Object.keys(data)[india]; //printing country name
+                            var confirmed = Object.values(data)[india][todaysobjectlength]['confirmed'];
+                            var deaths = Object.values(data)[india][todaysobjectlength]['deaths'];
+                            var recovered = Object.values(data)[india][todaysobjectlength]['recovered'];
+                            console.log(country, confirmed, deaths, recovered);
+
+                            var recoveredhtml = '<strong><br><center>'+recovered+'</center></strong>';
+                            var deathshtml = '<strong><br><center>'+deaths+'</center></strong>';
+                            var confirmedhtml = '<strong><br><center>'+confirmed+'</center></strong>';
+
+                            document.getElementById("recovered").innerHTML = recoveredhtml;
+                            document.getElementById("confirmed").innerHTML = confirmedhtml;
+                            document.getElementById("deaths").innerHTML = deathshtml;
+                        }
+
+                    )
+                }
+
+            )
+            </script>
 </body>
+
 </html>
