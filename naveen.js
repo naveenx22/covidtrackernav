@@ -44,6 +44,10 @@ app.get("/india" , function( req , res ){
     res.render("india.ejs");   
     });
 
+app.get("/mythbuster" , function( req , res ){
+    res.render("mythbusters.ejs");
+});    
+
 app.get("/help" , function( req , res ){
         res.render("help.ejs");   
         });
