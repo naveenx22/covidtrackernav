@@ -17,3 +17,5 @@ Owner:  Naveen Kummari
 
 Contact : nkummari22@gmail.com
 
+Link to Live Web App: http://covidtrackernav.herokuapp.com/
+
