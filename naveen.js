@@ -53,8 +53,12 @@ app.get("/help" , function( req , res ){
         });
 
 
-
-
+app.get("/emergency" , function( req , res){
+    res.render("emergency.ejs");
+});
+app.get("/moralsupport" , function( req , res){
+    res.render("moralsupport.ejs");
+});
 
 
 // initialising server

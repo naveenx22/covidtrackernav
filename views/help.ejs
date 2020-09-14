@@ -18,11 +18,13 @@
      font-size: 40px ;
      margin-top: 70px;
      }
-     img{
+     #img{
      	
      	width: 100%;
      	border-radius: 2%;
      }
+    
+     
     </style>
   </head>
 
@@ -48,6 +50,12 @@
     </ul>
    <ul class="navbar-nav ml-auto">
     <li class="nav-item">
+      <a style="color: crimson;" href="/emergency" class="nav-link">Emergency</a>
+     </li>
+     <li class="nav-item">
+      <a href="/moralsupport" class="nav-link">Moral Support</a>
+     </li>
+    <li class="nav-item">
       <a href="/mythbuster" class="nav-link">MythBuster</a>
      </li>
    	<li class="nav-item " >
@@ -60,9 +68,14 @@
 <br>
 <br>
 <!-- nav bar ends -->
+
 <div class="jumbotron">
-  <h1 class="display-4 bold"> Covid-19 Help Center</h1>
+ 
+    <h1  style="text-align: center;" class="display-4 bold"> Covid-19 Help Center</h1>
+
+   
 </div>
+
 
 <div class="jumbotron">
   <div class="row">
@@ -78,13 +91,15 @@
 <div class="jumbotron">
   <h2 class="display-4">Symptoms</h2><br>
   <p class="lead">COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.</p>
-<strong><p>Most Common Symptoms</p></strong>
+  <div class="row">
+    <div class = "col-lg-6">
+ <strong><p>Most Common Symptoms</p></strong>
 <ul>
   <li>fever</li>
   <li>dry cough</li>
   <li>tiredness</li>
 </ul>
-<strong><p>Less Common Symptoms</p></strong>
+<strong><p>Less Common Symptoms</p></strong>.
 <ul>
   
  <li>aches and pains</li> 
@@ -102,22 +117,38 @@
 <li>chest pain or pressure</li>
 <li>loss of speech or movement</li>
 </ul>
+    </div>
+<div class = "col-lg-6">
+  <img style="width: 70%; float: right;" src="https://images.vexels.com/media/users/3/193269/isolated/preview/0f317e26cfe6c2eff8351b28e8283741-covid-19-symptom-character-fever-by-vexels.png" alt="">
+  </div>
 </div>
+</div>
+
 
 
 <div class="jumbotron">
-<h2 class="display-4">Prevention</h2><br>
-<p class="lead">To prevent the spread of Covid-19</p>
+	<div class="row">
+		<div class="col-lg-6 col-md-12"> 
+      <h2 class="display-4">Prevention</h2><br>
+      <p class="lead">To Prevent the spread of Covid-19</p>
 <ul>
-<li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>
-<li>Maintain a safe distance from anyone who is coughing or sneezing.</li>
-<li>Wear a mask when physical distancing is not possible.</li>
-<li>Don’t touch your eyes, nose or mouth.</li>
-<li>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</li>
-<li>Stay home if you feel unwell.</li>
-<li>If you have a fever, cough and difficulty breathing, seek medical attention.</li>
-</ul>
+  <li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>
+  <li>Maintain a safe distance from anyone who is coughing or sneezing.</li>
+  <li>Wear a mask when physical distancing is not possible.</li>
+  <li>Don’t touch your eyes, nose or mouth.</li>
+  <li>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</li>
+  <li>Stay home if you feel unwell.</li>
+  <li>If you have a fever, cough and difficulty breathing, seek medical attention.</li>
+  </ul>
+    	</div>
+		<div class="col-lg-6 col-md-12 ">
+			<img style="width: 60%; float: right;" src="https://image.flaticon.com/icons/png/512/2775/2775520.png">
+    </div>
+    
+  </div>
+  
 </div>
+
 
 <div class="jumbotron">
 	<div class="row">
@@ -136,7 +167,7 @@
 </ol>
     	</div>
 		<div class="col-lg-6 col-md-12 ">
-			<img src="https://static.onecms.io/wp-content/uploads/sites/38/2020/07/14/Child-Superhero-Mask.png">
+			<img id="img" src="https://static.onecms.io/wp-content/uploads/sites/38/2020/07/14/Child-Superhero-Mask.png">
     </div>
     
   </div>
