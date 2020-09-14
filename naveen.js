@@ -5,7 +5,7 @@ const request = require('request');
 // // requiring fs for importing json
 // const fs = require('fs');   
 app = express();
-
+app.use(express.static("public"));
 app.set('view engine' , 'ejs'); // to tell our app to use ejs
 
 // var mydata; // data file that contains json content
